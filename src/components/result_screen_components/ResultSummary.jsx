@@ -7,7 +7,7 @@ function ResultSummary({ correctQuestion, totalQuestion }) {
           {correctQuestion}/{totalQuestion}
         </div>
         <div className="score-percentage" id="score-percentage">
-          {percent}
+          {Number.isNaN(percent) ? "" : percent}
         </div>
       </div>
       <h2 id="performance-message">Quiz Result</h2>

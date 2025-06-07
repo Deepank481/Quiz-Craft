@@ -19,7 +19,15 @@ function OptionComponent({ index, optionText, state, dispatch }) {
           {index === 2 && "C"}
           {index === 3 && "D"}
         </span>
-        <span className="answer-text">{optionText}</span>
+        <span className="answer-text">
+          {
+            <div
+              dangerouslySetInnerHTML={{
+                __html: optionText,
+              }}
+            />
+          }
+        </span>
       </button>
     </div>
   );

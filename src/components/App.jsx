@@ -16,7 +16,6 @@ function App() {
         <HomePageScreen state={state} dispatch={dispatch} />
         <QuizScreen state={state} dispatch={dispatch} />
         <ResultScreen state={state} dispatch={dispatch} />
-        <ReviewScreen state={state} />
       </main>
       <Footer />
     </>

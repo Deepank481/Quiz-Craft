@@ -15,18 +15,17 @@ function ResultScreen({ state, dispatch }) {
         temp = temp + state.scoreDetails.get(key)[1];
         temp2 = temp2 + state.scoreDetails.get(key)[0];
       }
-      console.log("Total Correct is::" + temp + temp2);
       setTotalCorrect(() => temp);
       setTotalQuestions(() => temp2);
     },
-    [state.scoreDetails, state.scoreDetails.size]
+    [state.scoreDetails, state.score]
   );
   return (
     <div
       id="results-screen"
       className={`screen ${state.screenActive === "result" ? "active" : ""}`}
     >
-      <div class="results-content">
+      <div className="results-content">
         <ResultSummary
           correctQuestion={totalCorrect}
           totalQuestion={totalQuestions}

@@ -30,13 +30,20 @@ function QuestionCard({ state, dispatch }) {
     [state.questionNo, state.questions]
   );
 
-  console.log("Options Consolidated::" + optionsState);
   return (
     <div className="question-card">
       <QuestionHeader state={state} dispatch={dispatch} />
       <div className="question-content">
         <h3 id="question-text">
-          {state.isDataLoaded ? state.questions[state.questionNo].question : ""}
+          {state.isDataLoaded ? (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: state.questions[state.questionNo].question,
+              }}
+            />
+          ) : (
+            ""
+          )}
         </h3>
       </div>
 

@@ -1,12 +1,15 @@
+const myMap = new Map();
 export const initialState = {
   questions: [],
   screenActive: "home",
   isDataLoaded: false,
   questionNo: 0,
+  isQuizStarted: false,
+  reviewQuestionNo: 0,
   optionSelected: "",
   isOptionSelected: false,
   score: 0,
-  scoreDetails: new Map(),
+  scoreDetails: myMap,
 };
 export function reducerFunction(state, action) {
   const { type, payload } = action;
@@ -64,7 +67,17 @@ export function reducerFunction(state, action) {
                 ? 1
                 : 0,
             ]),
+        isQuizStarted: !(state.questionNo + 1 === state.questions.length),
       };
+      break;
+    case "next-review-question":
+      state = { ...state, reviewQuestionNo: state.reviewQuestionNo + 1 };
+      break;
+    case "reset":
+      state = { ...initialState, scoreDetails: new Map() };
+      break;
+    case "quiz-started":
+      state = { ...state, isQuizStarted: payload };
       break;
   }
   console.log(state);

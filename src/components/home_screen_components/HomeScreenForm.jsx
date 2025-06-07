@@ -34,6 +34,7 @@ function HomeScreenForm({ state, dispatch }) {
       const data = await res.json();
       dispatch({ type: "data", payload: data.results });
       dispatch({ type: "data-status", payload: true });
+      dispatch({ type: "quiz-started", payload: true });
     }
     const urlToFetch = baseUrl + `amount=${totalQuestions}&type=multiple`;
     fetchQuizQuestions(urlToFetch);
@@ -43,39 +44,6 @@ function HomeScreenForm({ state, dispatch }) {
   return (
     <>
       <div className="quiz-settings">
-        <div className="setting-group">
-          <label htmlFor="category">Choose Category:</label>
-          <select
-            value={quizCategory}
-            id="category"
-            className="setting-select"
-            onChange={(e) => setCategory(() => e.target.value)}
-          >
-            {category.map((cat) => (
-              <option value={cat} key={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="setting-group">
-          <label htmlFor="difficulty">Difficulty Level:</label>
-          <select
-            id="difficulty"
-            className="setting-select"
-            value={diffLevel}
-            onChange={(e) =>
-              setDiffLevel(() => setDiffLevel(() => e.target.value))
-            }
-          >
-            <option value="Any Difficulty">Any Difficulty</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-        </div>
-
         <div className="setting-group">
           <label htmlFor="question-count">Number of Questions:</label>
           <select

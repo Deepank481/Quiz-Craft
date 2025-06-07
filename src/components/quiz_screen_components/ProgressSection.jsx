@@ -1,4 +1,4 @@
-function ProgressSection({ state, dispatch }) {
+function ProgressSection({ state, dispatch, quizTime }) {
   return (
     <div className="progress-section">
       <div className="progress-info">
@@ -8,10 +8,17 @@ function ProgressSection({ state, dispatch }) {
         </span>
         <div className="timer">
           <i className="fas fa-clock"></i>
-          <span id="time-remaining">30</span>s
+          <span id="time-remaining">{quizTime}</span>s
         </div>
       </div>
-      <div className="progress-bar">
+      <div
+        className="progress-bar"
+        style={{
+          width:
+            (quizTime / (Math.ceil(state.questions.length / 2) * 60)) * 100 +
+            "%",
+        }}
+      >
         <div className="progress-fill" id="progress-fill"></div>
       </div>
     </div>

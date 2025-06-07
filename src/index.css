@@ -677,12 +677,37 @@ body {
   margin-bottom: var(--space-xl);
   padding-bottom: var(--space-md);
   border-bottom: 2px solid var(--gray-200);
+  flex-wrap: wrap;
+  gap: var(--space-md);
 }
 
 .review-header h2 {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
+}
+
+.review-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.review-counter {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.review-nav-buttons {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.review-nav-buttons .btn {
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.875rem;
 }
 
 .review-questions {
@@ -815,6 +840,25 @@ body {
 
 .review-explanation strong {
   color: var(--text-primary);
+}
+
+/* Review Actions */
+.review-actions {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 2px solid var(--gray-200);
+}
+
+.review-main-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.review-main-actions .btn {
+  min-width: 200px;
+  justify-content: center;
 }
 
 /* Loading Overlay */
@@ -965,6 +1009,31 @@ body {
     flex-direction: column;
     gap: var(--space-md);
     align-items: flex-start;
+  }
+
+  .review-nav {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .review-nav-buttons {
+    gap: var(--space-xs);
+  }
+
+  .review-nav-buttons .btn {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.75rem;
+  }
+
+  .review-main-actions {
+    flex-direction: column;
+  }
+
+  .review-main-actions .btn {
+    width: 100%;
+    min-width: unset;
   }
 
   .category-result {
